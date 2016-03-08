@@ -7,12 +7,9 @@ var Signal = require ("signals");
 
 
 
-var Module = function(){
+var toExport = {};
 
-
-
-
-};
+toExport.Player = require('./lib/YTPlayerWrapper');
 
 
 
@@ -39,4 +36,4 @@ var Module = function(){
 
 
 
-module.exports = Module;
+module.exports = toExport;
