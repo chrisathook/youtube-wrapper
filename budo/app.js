@@ -34,10 +34,23 @@ App.prototype.enablerInitialized = function () {
 console.log ("DC Ready");
 
 
+  var tag = document.createElement('script');
+   tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  window.onYouTubeIframeAPIReady= this._ytloaded.bind (this);
 
 
 
 
+};
+
+
+App.prototype._ytloaded = function () {
+
+
+  console.log ("YT api loaded");
 
 };
 
