@@ -87,7 +87,7 @@ App.prototype._ytloaded = function () {
 
 App.prototype._playerReadyHandler = function () {
 
-this.player.player.playVideo();
+this.player.ytPlayer.playVideo();
 
 };
 
