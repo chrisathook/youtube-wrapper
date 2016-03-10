@@ -77,7 +77,7 @@ App.prototype._ytloaded = function () {
 
   this.player = new YTPlayerWrapper.Player ();
 
-  this.player.playerReadySignal.addOnce (this._playerReadyHandler,this);
+  this.player.readySignal.addOnce (this._playerReadyHandler,this);
 
   this.player.load (el,params);
 
@@ -85,9 +85,9 @@ App.prototype._ytloaded = function () {
 };
 
 
-App.prototype._playerReadyHandler = function () {
+App.prototype._playerReadyHandler = function (signal) {
 
-this.player.ytPlayer.playVideo();
+  this.player.ytPlayer.playVideo();
 
 };
 
