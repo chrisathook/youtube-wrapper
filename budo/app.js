@@ -3,7 +3,8 @@
 
 
 
-var YTPlayerWrapper = require ("../index.js");
+var YTPlayerWrapper = require ("../index.js").YTPlayerWrapper;
+var TrackingManifest = require ("../index.js").TrackingManifest;
 
 
 var App = function () {
@@ -75,7 +76,7 @@ App.prototype._ytloaded = function () {
       }
     };
 
-  this.player = new YTPlayerWrapper.Player ();
+  this.player = new YTPlayerWrapper ();
 
   this.player.readySignal.addOnce (this._playerReadyHandler,this);
 
