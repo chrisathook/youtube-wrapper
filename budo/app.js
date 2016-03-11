@@ -76,7 +76,7 @@ App.prototype._ytloaded = function () {
       }
     };
 
-  this.player = new YTPlayerWrapper ();
+  this.player = new YTPlayerWrapper (TrackingManifest.DEFAULT);
 
   this.player.readySignal.addOnce (this._playerReadyHandler,this);
 
