@@ -26,7 +26,6 @@ App.prototype.enablerInitialized = function () {
   console.log("DC Ready");
 
   var ytLoader = YTApiLoader.getInstance();
-
   ytLoader.apiReady.addOnce(this._ytloaded, this);
   ytLoader.load ();
 
@@ -37,15 +36,10 @@ App.prototype._ytloaded = function () {
   console.log ("YT api loaded");
 
   var el = document.querySelector('#ad-root');
-
   YTConfig.generateDefaultAutoplay(250,970,"zRa3X1IqcgI");
-
   var params = YTConfig.generateDefaultClickplay(250,970,"zRa3X1IqcgI");
-
   this.player = new YTPlayerWrapper(TrackingManifest.DEFAULT);
-
   this.player.readySignal.addOnce (this._playerReadyHandler, this);
-
   this.player.load (el, params);
 
 };
