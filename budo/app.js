@@ -36,8 +36,8 @@ App.prototype._ytloaded = function () {
   console.log ("YT api loaded");
 
   var el = document.querySelector('#ad-root');
-  YTConfig.generateDefaultAutoplay(250,970,"zRa3X1IqcgI");
-  var params = YTConfig.generateDefaultClickplay(250,970,"zRa3X1IqcgI");
+  // you still tell the player to when you are ready for it to play.
+  var params = YTConfig.generateDefaultAutoplay(250,970,"zRa3X1IqcgI");
   this.player = new YTPlayerWrapper(TrackingManifest.DEFAULT);
   this.player.readySignal.addOnce (this._playerReadyHandler, this);
   this.player.load (el, params);
@@ -46,6 +46,7 @@ App.prototype._ytloaded = function () {
 
 App.prototype._playerReadyHandler = function (signal) {
 
+  this.player.ytPlayer.mute ();
   this.player.ytPlayer.playVideo();
 
 };
