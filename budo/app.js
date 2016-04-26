@@ -3,6 +3,7 @@
 var YTPlayerWrapper = require("../index.js").YTPlayerWrapper;
 var TrackingManifest = require("../index.js").TrackingManifest;
 var YTApiLoader = require("../index.js").YTApiLoader;
+var YTConfig = require("../index.js").ConfigObject;
 
 var App = function () {
 
@@ -36,27 +37,10 @@ App.prototype._ytloaded = function () {
   console.log ("YT api loaded");
 
   var el = document.querySelector('#ad-root');
-  var params = {
-    height: '250',
-    width: '970',
-    videoId: "zRa3X1IqcgI",
-    playerVars: {
 
-      end: 25,
-      start: 0,
-      rel: 0,
-      showinfo: 0,
-      enablejsapi: 1,
-      disablekb: 1,
-      iv_load_policy: 3,
-      cc_load_policy: 0,
-      adformat: '1_8',
-      controls: 1,
-      html5: 1,
-      origin: document.domain,
-      fs: 0
-    }
-  };
+  YTConfig.generateDefaultAutoplay(250,970,"zRa3X1IqcgI");
+
+  var params = YTConfig.generateDefaultClickplay(250,970,"zRa3X1IqcgI");
 
   this.player = new YTPlayerWrapper(TrackingManifest.DEFAULT);
 
