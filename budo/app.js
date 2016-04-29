@@ -37,7 +37,7 @@ App.prototype._ytloaded = function () {
 
   var el = document.querySelector('#ad-root');
   // you still tell the player to when you are ready for it to play.
-  var params = YTConfig.generateDefaultNoHistory(250,970,"zRa3X1IqcgI", 15);
+  var params = YTConfig.generateDefaultNoHistory(250,970,"zRa3X1IqcgI");
   this.player = new YTPlayerWrapper(TrackingManifest.DEFAULT);
   this.player.readySignal.addOnce (this._playerReadyHandler, this);
   this.player.load (el, params);
